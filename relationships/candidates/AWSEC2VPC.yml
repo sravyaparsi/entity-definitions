@@ -1,0 +1,16 @@
+category: AWSEC2VPC
+lookups:
+- entityTypes:
+  - domain: INFRA
+    type: AWSEC2VPC
+  tags:
+    matchingMode: ALL
+    predicates:
+      - tagKeys: ["vpc-0b0ffbd4a1aa858d9"]
+        field: vpc-0b0ffbd4a1aa858d9
+    onMatch:
+      onMultipleMatches: RELATE_ALL
+    onMiss:
+      action: CREATE_UNINSTRUMENTED
+      uninstrumented:
+        type: AWSEC2VPC
