@@ -1,0 +1,16 @@
+category: AWSKMSKey
+lookups:
+- entityTypes:
+  - domain: INFRA
+    type: AWSKMSKey
+  tags:
+    matchingMode: ALL
+    predicates:
+      - tagKeys: ["KeyId"]
+        field: KeyId
+    onMatch:
+      onMultipleMatches: RELATE_ALL
+    onMiss:
+      action: CREATE_UNINSTRUMENTED
+      uninstrumented:
+        type: AWSKMSKey
