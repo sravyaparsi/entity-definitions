@@ -1,0 +1,18 @@
+category: AWSEC2VolumeAttachment
+lookups:
+- entityTypes:
+  - domain: INFRA
+    type: AWSEC2VolumeAttachment
+  tags:
+    matchingMode: ALL
+    predicates:
+      - tagKeys: ["Volumes&VolumeId"]
+        field: Volumes&VolumeId
+      - tagKeys: ["InstanceId"]
+        field: InstanceId
+    onMatch:
+      onMultipleMatches: RELATE_ALL
+    onMiss:
+      action: CREATE_UNINSTRUMENTED
+      uninstrumented:
+        type: AWSEC2VolumeAttachment
