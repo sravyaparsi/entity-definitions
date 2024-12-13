@@ -1,0 +1,16 @@
+category: AWSEC2Volume
+lookups:
+- entityTypes:
+  - domain: INFRA
+    type: AWSEC2Volume
+  tags:
+    matchingMode: ALL
+    predicates:
+      - tagKeys: ["VolumeId"]
+        field: VolumeId
+    onMatch:
+      onMultipleMatches: RELATE_ALL
+    onMiss:
+      action: CREATE_UNINSTRUMENTED
+      uninstrumented:
+        type: AWSEC2Volume
