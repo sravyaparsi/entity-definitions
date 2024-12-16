@@ -1,0 +1,16 @@
+category: AWSAPIGATEWAYRESTAPI
+lookups:
+- entityTypes:
+  - domain: INFRA
+    type: AWSAPIGATEWAYRESTAPI
+  tags:
+    matchingMode: ALL
+    predicates:
+      - tagKeys: ["RestApiId"]
+        field: RestApiId
+    onMatch:
+      onMultipleMatches: RELATE_ALL
+    onMiss:
+      action: CREATE_UNINSTRUMENTED
+      uninstrumented:
+        type: AWSAPIGATEWAYRESTAPI
