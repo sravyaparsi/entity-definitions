@@ -1,0 +1,16 @@
+category: AWSEC2NATGATEWAY
+lookups:
+- entityTypes:
+  - domain: INFRA
+    type: AWSEC2NATGATEWAY
+  tags:
+    matchingMode: ALL
+    predicates:
+      - tagKeys: ["NatGatewayId"]
+        field: NatGatewayId
+    onMatch:
+      onMultipleMatches: RELATE_ALL
+    onMiss:
+      action: CREATE_UNINSTRUMENTED
+      uninstrumented:
+        type: AWSEC2NATGATEWAY
