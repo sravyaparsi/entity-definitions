@@ -1,0 +1,16 @@
+category: AWSLOGSLOGGROUP
+lookups:
+- entityTypes:
+  - domain: INFRA
+    type: AWSLOGSLOGGROUP
+  tags:
+    matchingMode: ALL
+    predicates:
+      - tagKeys: ["LogGroupName"]
+        field: LogGroupName
+    onMatch:
+      onMultipleMatches: RELATE_ALL
+    onMiss:
+      action: CREATE_UNINSTRUMENTED
+      uninstrumented:
+        type: AWSLOGSLOGGROUP
