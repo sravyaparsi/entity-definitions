@@ -1,0 +1,16 @@
+category: AWSEC2SECURITYGROUP
+lookups:
+- entityTypes:
+  - domain: INFRA
+    type: AWSEC2SECURITYGROUP
+  tags:
+    matchingMode: ALL
+    predicates:
+      - tagKeys: ["SecurityGroupIds"]
+        field: SecurityGroupIds
+    onMatch:
+      onMultipleMatches: RELATE_ALL
+    onMiss:
+      action: CREATE_UNINSTRUMENTED
+      uninstrumented:
+        type: AWSEC2SECURITYGROUP
