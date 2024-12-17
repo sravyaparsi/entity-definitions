@@ -1,0 +1,16 @@
+category: AWSEC2SUBNET
+lookups:
+- entityTypes:
+  - domain: INFRA
+    type: AWSEC2SUBNET
+  tags:
+    matchingMode: ALL
+    predicates:
+      - tagKeys: ["SubnetId"]
+        field: SubnetId
+    onMatch:
+      onMultipleMatches: RELATE_ALL
+    onMiss:
+      action: CREATE_UNINSTRUMENTED
+      uninstrumented:
+        type: AWSEC2SUBNET
