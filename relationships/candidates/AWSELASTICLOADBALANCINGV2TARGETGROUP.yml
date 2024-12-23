@@ -1,0 +1,16 @@
+category: AWSELASTICLOADBALANCINGV2TARGETGROUP
+lookups:
+- entityTypes:
+  - domain: INFRA
+    type: AWSELASTICLOADBALANCINGV2TARGETGROUP
+  tags:
+    matchingMode: ALL
+    predicates:
+      - tagKeys: ["DefaultActions&TargetGroupArn"]
+        field: DefaultActions&TargetGroupArn
+    onMatch:
+      onMultipleMatches: RELATE_ALL
+    onMiss:
+      action: CREATE_UNINSTRUMENTED
+      uninstrumented:
+        type: AWSELASTICLOADBALANCINGV2TARGETGROUP
