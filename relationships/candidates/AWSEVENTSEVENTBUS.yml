@@ -1,0 +1,16 @@
+category: AWSEVENTSEVENTBUS
+lookups:
+- entityTypes:
+  - domain: INFRA
+    type: AWSEVENTSEVENTBUS
+  tags:
+    matchingMode: ALL
+    predicates:
+      - tagKeys: ["EventBusName"]
+        field: EventBusName
+    onMatch:
+      onMultipleMatches: RELATE_ALL
+    onMiss:
+      action: CREATE_UNINSTRUMENTED
+      uninstrumented:
+        type: AWSEVENTSEVENTBUS
