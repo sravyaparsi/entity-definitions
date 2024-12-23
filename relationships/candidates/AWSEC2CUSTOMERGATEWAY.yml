@@ -1,0 +1,16 @@
+category: AWSEC2CUSTOMERGATEWAY
+lookups:
+- entityTypes:
+  - domain: INFRA
+    type: AWSEC2CUSTOMERGATEWAY
+  tags:
+    matchingMode: ALL
+    predicates:
+      - tagKeys: ["CustomerGatewayId"]
+        field: CustomerGatewayId
+    onMatch:
+      onMultipleMatches: RELATE_ALL
+    onMiss:
+      action: CREATE_UNINSTRUMENTED
+      uninstrumented:
+        type: AWSEC2CUSTOMERGATEWAY
