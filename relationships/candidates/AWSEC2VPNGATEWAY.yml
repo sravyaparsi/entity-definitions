@@ -1,0 +1,16 @@
+category: AWSEC2VPNGATEWAY
+lookups:
+- entityTypes:
+  - domain: INFRA
+    type: AWSEC2VPNGATEWAY
+  tags:
+    matchingMode: ALL
+    predicates:
+      - tagKeys: ["VPNGatewayId"]
+        field: VPNGatewayId
+    onMatch:
+      onMultipleMatches: RELATE_ALL
+    onMiss:
+      action: CREATE_UNINSTRUMENTED
+      uninstrumented:
+        type: AWSEC2VPNGATEWAY
