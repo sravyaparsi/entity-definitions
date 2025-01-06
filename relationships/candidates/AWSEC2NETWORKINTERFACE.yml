@@ -1,0 +1,16 @@
+category: AWSEC2NETWORKINTERFACE
+lookups:
+- entityTypes:
+  - domain: INFRA
+    type: AWSEC2NETWORKINTERFACE
+  tags:
+    matchingMode: ALL
+    predicates:
+      - tagKeys: ["Id"]
+        field: Id
+    onMatch:
+      onMultipleMatches: RELATE_ALL
+    onMiss:
+      action: CREATE_UNINSTRUMENTED
+      uninstrumented:
+        type: AWSEC2NETWORKINTERFACE
